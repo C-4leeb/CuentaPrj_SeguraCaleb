@@ -6,12 +6,13 @@ public class PrincipalCuenta{
     public static void main(String[] args) {
          Scanner sc = new Scanner(System.in);
          List <Cuenta> cuentas = new ArrayList<>();
-         int actual = -1;
+         int actual = -1; //Cuenta actualmente seleccionada
      
          System.out.println("\nMenú principal"); 
      
          boolean salir = false;
-     
+         
+         // Ciclo principal del menu
          while(!salir) {
             System.out.println("1) Crear Cuenta"); 
             System.out.println("2) Conocer la cantidad de Cuentas Creadas"); 
@@ -26,7 +27,7 @@ public class PrincipalCuenta{
             String op = sc.nextLine().trim();
             
             switch (op) {
-                case "1":{
+                case "1":{ // Crear nueva cuenta
                     System.out.println("Saldo de la cuenta");
                     String lineaSaldo = sc.nextLine().trim();
                     System.out.print("Nombre de la Cuenta Habiente");
@@ -52,13 +53,13 @@ public class PrincipalCuenta{
                     System.out.println("Cuenta Crea y seleccionado (índice " + actual + ")");
                     break;
                 }
-                case "2": {
+                case "2": { // Mostrar la cantidad de cuentas creadas
                     Cuenta c = cuentas.get(actual);
                     int cantidadCuentas = c.getCantCuentasCreadas();
                     System.out.println("Cantidad de cuentas creadas: " + cantidadCuentas);
                     break;
                 }
-                case "3": {
+                case "3": { // Listar todas las cuentas con su indice, codigo y saldo
                     if (cuentas.isEmpty())
                         System.out.println("No hay cuentas creadas.");
                     else{
@@ -73,7 +74,7 @@ public class PrincipalCuenta{
                     }
                     break;
                 }
-                case "4": {     
+                case "4": {      // Seleccionar la cuenta actual por indice
                     if (cuentas.isEmpty()){
                         System.out.println("Cree una cuenta primero");
                         break;
@@ -94,7 +95,7 @@ public class PrincipalCuenta{
                         break;
                 }
                 
-                case "5": {
+                case "5": {  // Depositar en la cuenta 
                     if (actual < 0 || cuentas.isEmpty()) {
                             System.out.println("Debe crear y seleccionar una Cuenta primero.");
                             break;
@@ -111,7 +112,7 @@ public class PrincipalCuenta{
                     break;
                 }
                 
-                case "6":{
+                case "6":{ // Retirar de la cuenta
                     if (actual < 0 || cuentas.isEmpty()) {
                             System.out.println("Debe crear y seleccionar una Cuenta primero.");
                             break;
@@ -128,7 +129,7 @@ public class PrincipalCuenta{
                     break;
                 }
                 
-                case "7":{
+                case "7":{  // Consultar saldo de la cuenta
                     if (actual < 0 || cuentas.isEmpty()) {
                         System.out.println("Debe crear y seleccionar una cuenta primero.");
                         break;
@@ -137,7 +138,7 @@ public class PrincipalCuenta{
                         break;
                 }
                 
-                case "8": { 
+                case "8": { // Mostrar estado completo de la cuenta 
                     if (actual < 0 || cuentas.isEmpty()) {
                         System.out.println("Debe crear y seleccionar una cuenta primero.");
                         break;
@@ -146,7 +147,7 @@ public class PrincipalCuenta{
                     break;
                 }
                 
-                case "9": {
+                case "9": { // Establecer o actualizar nombre cuenta habiente
                     if (actual < 0 || cuentas.isEmpty()) {
                         System.out.println("Debe crear y seleccionar una cuenta primero.");
                         break;
@@ -158,7 +159,7 @@ public class PrincipalCuenta{
                     break;
                 }
                 
-                case "0": {
+                case "0": { // Salir 
                     salir = true;
                     System.out.println("Saliendo...");
                     break;
